@@ -1,0 +1,47 @@
+
+partidos = {
+"MD01":["Argentina","Brasil","Lusail","Fase de Grupos","15/06","20:00"],
+"MD02":["España","Francia","Al Bayt","Fase de Grupos","16/06","18:00"],
+"MD03":["Chile","Uruguay","Education City","Fase de Grupos","17/06","16:00"],
+"MD04":["Alemania","Italia","974 Stadium","Octavos","20/06","21:00"],
+"MD05":["Portugal","Inglaterra","Al Thumama","Cuartos","24/06","19:00"],
+"MD06":["México","Japón","Lusail","Fase de Grupos","18/06","17:00"],
+"MD07":["Países Bajos","Bélgica","Al Bayt","Semifinal","29/06","20:00"],
+"MD08":["Brasil","España","Lusail","Final","03/07","21:00"]
+}
+entradas = {
+"MD01":[180000,250],
+"MD02":[150000,180],
+"MD03":[90000,0],
+"MD04":[220000,120],
+"MD05":[300000,80],
+"MD06":[120000,90],
+"MD07":[350000,40],
+"MD08":[500000,15]
+}
+
+def stock_seleccion(seleccion):
+    total = 0
+    for codigo in partidos:
+        if entradas[codigo][1].lower == seleccion().lower():
+            total = total + entradas[codigo][1]
+        print("El total de stock es: ",total)
+
+
+def menu():
+    while True:
+        print("******** MENÚ PRINCIPAL ********")
+        print("1. Stock por selección")
+        print("2. Buscar partidos por precio")
+        print("3. Actualizar precio de entrada")
+        print("4. Salir")
+
+        op = int(input("Opcion: "))
+
+        if op == 1:
+
+            seleccion = input("Ingresa la seleccion para ver stock: ")
+            stock_seleccion(seleccion)
+
+
+

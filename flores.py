@@ -16,12 +16,39 @@ bodega = {
 'FLO5': [19990, 0],
 'FLO6': [22990, 6],
 }
+
 def unidades_arreglo(tipo):
-    
+            
+            total = 0
+
+            for codigo in flores:
+
+                if flores[codigo][1].lower() == tipo.lower():
+                    
+                    total += bodega[codigo][1]
+                
+            print("El total de unidades disponibles es: ",total)
+
+def buscar_precio(minimo,maximo):
+    resultados = []
+    for codigo,dato in bodega.items():
+         if bodega[precio][1] == minimo or maximo:
+              precio = bodega[0]
+              unidades = bodega[1]
+              if minimo >= 0 and maximo > 0 and minimo < maximo:
+                   if codigo in flores:
+                        nombre = flores[0]
+                        resultados.append(f"{nombre}--{codigo}")
+
+                   
+
+     
+
+     
 def menu():
     while True:
 
-        print("========== MENÚ PRINCIPAL ==========")
+        print("\n========== MENÚ PRINCIPAL ==========")
         print("1. Unidades por tipo de arreglo")
         print("2. Búsqueda de arreglos por rango de precio")
         print("3. Actualizar precio de arreglo")
@@ -33,30 +60,25 @@ def menu():
         op = int(input("Opcion: "))
 
         if op == 1:
+
             tipo = input("Ingrese tipo de arreglo: ")
+
             unidades_arreglo(tipo)
-            for codigo in flores:
-                if flores['FLO1'][1].lower == tipo.lower():
-                    break
-                    
-                    total += bodega[codigo][1]
-                
-                print("El total de unidades disponibles es: ",total)
-
-
-
-def leer_opcion():
-    while True:
-        try:
-            op = int(input("Opcion: "))
-            if op >= 1:
-                print("Opcion valida")
-                break
-            else:
-                print("Debes ingresar un numero entero")
-        except ValueError:
-            print("Debes ingresar un numero entero")
-
+        elif op == 2:
+             
+             while True:
+                  try:
+                       minimo = int(input("Ingresa el valor minimo: "))
+                       maximo = int(input("Ingresae el valor maximo: "))
+                       if minimo and maximo > 1:
+                            break
+                       else:
+                            print("Debes ingresar un numero valido")
+                  except:
+                       print("Debes ingresar un numero valido")
+             buscar_precio(minimo,maximo)
+             break
+        
 
 if __name__ == "__main__":
     menu()

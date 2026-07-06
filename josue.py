@@ -1,23 +1,30 @@
 
 def menu():
     print("=== Menu ===")
-    print("1. Agregar alumno")
-    print("2. Buscar alumno")
-    print("3. Eliminar alumno")
-    print("4. Actualizar disponibilidad")
-    print("5. Mostrar alumnos")
+    print("1. Agregar jugador")
+    print("2. Buscar jugador")
+    print("3. Eliminar jugador")
+    print("4. Actualizar titularidad")
+    print("5. Mostrar jugadores")
     print("6. Salir")
-    while True:
-            try:
-                op = int(input("Opcion: "))
-                if op >= 1:
-                    print("Opcion valida")
-                    break
-                else:
-                    print("Pon un numero entero")
-            except ValueError:
-                print("Pon un numero entero")
+
+def op():
+     while True:
+        try:  
+            opc = int(input("Opcion: "))
+            if opc >= 1:
+                print("Opcion valida")
+                break
+            else:
+                print("Opcion invalida, debes poner un numero entero")
+        except ValueError:
+            print("Opcion invalida, debes poner un numero entero")
 while True:
-     menu()
+    menu()
+    op()
+
+
+  
+
 
 
